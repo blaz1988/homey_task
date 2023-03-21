@@ -1,0 +1,12 @@
+h1 New Project
+
+= form_with(model: @project, local: true) do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :status
+    = f.select :status, Project::STATUSES
+
+  button type="submit" Add

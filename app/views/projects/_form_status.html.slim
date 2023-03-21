@@ -1,0 +1,6 @@
+= form_with(model: @project, local: true) do |form|
+  = form.hidden_field :id, value: @project.id
+  .field
+    = form.select :status, Project::STATUSES
+
+  button type="submit" Change Status

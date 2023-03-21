@@ -1,0 +1,8 @@
+label for="comment" Your Comment:
+= form_with(model: [project, comment], local: true) do |form|
+  = form.hidden_field :project_id, value: project.id
+
+  .field
+    = form.text_area :content, id: "comment", rows: "4", cols: "50", label: false
+
+  button type="submit" Post Comment

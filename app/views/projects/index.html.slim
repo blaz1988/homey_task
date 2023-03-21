@@ -1,0 +1,5 @@
+.project-header
+  h2 Projects
+  a.new-project-btn href=new_project_path New project
+ul
+  == render partial: "projects/project", collection: @projects

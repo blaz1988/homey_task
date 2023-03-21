@@ -1,0 +1,7 @@
+- if flash.now[:error]
+  .alert.alert-danger
+    = flash.now[:error]
+- if flash.now[:notice]
+  .alert.alert-success
+    = flash.now[:notice]
+

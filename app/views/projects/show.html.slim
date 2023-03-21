@@ -1,0 +1,14 @@
+= render 'shared/flash_messages'
+h2=@project.name
+= render "projects/form_status"
+
+section.comments
+h2 Comments
+
+ul
+  - if @project.comments.any?
+    = render partial: "comments/comment", collection: @project.comments
+
+div.comment-form
+  h3 Post a Comment
+  = render "comments/form", comment: Comment.new, project: @project

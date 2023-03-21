@@ -1,0 +1,20 @@
+h1 Log in
+
+- if flash.now[:danger]
+  .alert.alert-danger
+    = flash.now[:danger]
+
+= form_with(url: login_path, local: true, scope: :session) do |f|
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+
+  = f.submit 'Log in', class: 'btn btn-primary'
+
+  p
+  | Don't have an account? 
+  = link_to 'Sign up', signup_path
