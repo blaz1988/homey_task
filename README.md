@@ -1,4 +1,16 @@
-# Setup
+# Project Conversation History - Ruby on Rails Web App
+
+This Ruby on Rails web application allows users to manage projects, leave comments, and track status changes.
+
+## Running Tests
+
+To run the test suite (RSpec) for the application, execute the following command in your terminal:
+
+```
+bundle exec rspec spec
+```
+
+## Setup
 
 * install ruby '3.1.2'
 
@@ -12,26 +24,26 @@ rbenv install 3.1.2
 rbenv global 3.1.2
 ```
 
-*  clone project repo
+### clone project repo
 ```
-git clone git@github.com:blaz1988/SaaS.git
+git clone git@github.com:blaz1988/homey_task.git
 ```
 
-*  install gems
+### install gems
 ```
 bundle install
 ```
-* create database from database.yml
+### create database from database.yml
 ```
 bundle exec rake db:create
 ```
 
-* run migrations to create database structure
+###run migrations to create database structure
 ```
 bundle exec rake db:migrate
 ```
 
-* install webpacker
+### install webpacker
 
 ```
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -39,50 +51,15 @@ sudo apt-get install -y nodejs
 bundle exec rails webpacker:install
 ```
 
-* run server on http://localhost:3000/
+### run server on http://localhost:3000/
 ```
 bundle exec rails s
 ```
 
-* create AdminUser for http://localhost:3000/admin
-
-```
-bundle exec rails c
-AdminUser.create(email: "your@email.com", password: "your_password")
-```
-
-# Create new tables, models and basic Admin data
-
-```
-rails generate model Tokens name:string coingecko_query:string messari_query:string polygonscan_contract:string
-bundle exec rake db:migrate
-rails generate active_admin:resource Token
-```
-
 # Coding guide
 
-* Skinny Controllers - Keep the controllers skinny and always extract logic to other classes or models.
 
-BAD PRACTICE
-
-```
-def create
-  name = params[:name]
-  last_name = params[:last_name]
-  user = User.create(name: name, last_name: name)
-  Book.create(user: user, name: params[:book][:name])
-end
-```
-
-GOOD PRACTICE
-
-```
-def create
-  CreateUser.call(params: params)
-end
-```
-
-* Naming Convention 
+## Naming Convention 
 
 ```
 Database
@@ -119,18 +96,3 @@ Classes
 *CamelCase - first letter of every word capitalized, no spaces
 
 ```
-
-# Development rules
-
-* for every ticket create a new branch in following format
-
-```
-git checkout -b <trello_id>/<ticket name>
-```
-
-* when ticket is ready for review then create a PR(pull request), and publish the link of PR to saas channel on slack and post it as comment inside trello ticket. Move your trello ticket to "Code review" column.
-
-* when you get approval for PR, move your PR to testing column and deploy it on heroku.
-
-* make sure that PR contains descriptive title and description with trello ticket link.
-* if there are visible changes, take a screenshoot of your local env and post it inside PR description.
