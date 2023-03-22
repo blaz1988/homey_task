@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @comments = CommentsQuery.new.by_project(@project).newest_first.relation
+    @status_changes = StatusChangesQuery.new.by_project(@project).oldest_first.relation
   end
 
   def new
@@ -26,7 +27,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    ProjectServices::StatusChanger.call(@project, project_params[:status])
+    ProjectServices::StatusChanger.call(@project, project_params[:status], current_user)
     flash[:notice] = 'Status was successfully changed.'
     redirect_to @project
   end
