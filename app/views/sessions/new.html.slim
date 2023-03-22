@@ -1,8 +1,8 @@
 h1 Log in
 
-- if flash.now[:danger]
+- if flash.now[:error]
   .alert.alert-danger
-    = flash.now[:danger]
+    = flash.now[:error]
 
 = form_with(url: login_path, local: true, scope: :session) do |f|
   .form-group

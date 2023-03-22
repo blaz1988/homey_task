@@ -1,2 +1,2 @@
 li
-  | Changed status from #{status_change.from_status} to #{status_change.to_status} on #{status_change.created_at.strftime('%b %d, %Y %I:%M %p')} by #{current_user.email}
+  | Changed status from #{status_change.from_status} to #{status_change.to_status} on #{format_date(status_change.created_at)} by #{current_user.email}
