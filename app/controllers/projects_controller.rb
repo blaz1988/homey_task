@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @comments = @project.comments
+    @comments = CommentsQuery.new.by_project(@project).newest_first.relation
   end
 
   def new
