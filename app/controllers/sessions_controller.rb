@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      log_in user
+    authenticator = SessionAuthenticator.new(params[:session][:email], params[:session][:password])
+    if authenticator.authenticate
+      log_in authenticator.user
       redirect_to root_url
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = authenticator.error
       render 'new'
     end
   end
