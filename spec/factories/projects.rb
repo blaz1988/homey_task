@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :project do
     name { Faker::Company.name }
-    status { Project::STATUSES.sample }
+    status { Project::STATUSES.first }
     association :user
 
     trait :with_comments do

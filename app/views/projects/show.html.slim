@@ -1,6 +1,14 @@
 = render 'shared/flash_messages'
-h2=@project.name
+h2 #{@project.name} | #{@project.status}
 = render "projects/form_status"
+
+section.status-changes
+  h2 Status Changes
+  ul
+    - if @status_changes.any?
+      = render partial: "projects/status_change", collection: @status_changes  
+    - else
+      p No status changes found.
 
 section.comments
 h2 Comments
