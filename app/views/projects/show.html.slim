@@ -7,7 +7,7 @@ h2 Comments
 
 ul
   - if @project.comments.any?
-    = render partial: "comments/comment", collection: @project.comments
+    = render partial: "comments/comment", collection: @comments
 
 div.comment-form
   h3 Post a Comment

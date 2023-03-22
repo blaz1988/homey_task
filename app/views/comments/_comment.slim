@@ -1,5 +1,8 @@
-li
-  p
+li.comment-item
+  p.comment-user
     strong = comment.user.name
-    '
+  p.comment-content
     | #{comment.content}
+  p.comment-date
+    | #{format_comment_date(comment.created_at)}
+
