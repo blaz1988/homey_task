@@ -9,7 +9,7 @@ gem 'slim'
 gem 'sqlite3'
 
 gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
+gem 'sassc-rails'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'

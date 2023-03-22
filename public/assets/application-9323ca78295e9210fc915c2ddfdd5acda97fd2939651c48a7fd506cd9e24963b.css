@@ -1,0 +1,208 @@
+/* line 1, app/assets/stylesheets/style.scss */
+header {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: right;
+}
+
+/* line 7, app/assets/stylesheets/style.scss */
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* line 13, app/assets/stylesheets/style.scss */
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/* line 18, app/assets/stylesheets/style.scss */
+nav li:first-child {
+  margin-left: 0;
+}
+
+/* line 22, app/assets/stylesheets/style.scss */
+nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* line 27, app/assets/stylesheets/style.scss */
+nav a:hover {
+  text-decoration: underline;
+  color: #000;
+  /* Change the color of the link when hovered */
+}
+
+/* line 32, app/assets/stylesheets/style.scss */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* line 39, app/assets/stylesheets/style.scss */
+h1, h2, h3 {
+  margin-bottom: 20px;
+}
+
+/* line 43, app/assets/stylesheets/style.scss */
+.project,
+.comments {
+  padding: 20px;
+}
+
+/* line 48, app/assets/stylesheets/style.scss */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* line 53, app/assets/stylesheets/style.scss */
+li {
+  margin-bottom: 10px;
+  background: #f4f4f4;
+  padding: 10px;
+}
+
+/* line 59, app/assets/stylesheets/style.scss */
+.comment-form {
+  margin-top: 20px;
+}
+
+/* line 63, app/assets/stylesheets/style.scss */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 68, app/assets/stylesheets/style.scss */
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 75, app/assets/stylesheets/style.scss */
+button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* line 83, app/assets/stylesheets/style.scss */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* line 88, app/assets/stylesheets/style.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 92, app/assets/stylesheets/style.scss */
+.new-project-btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+/* line 101, app/assets/stylesheets/style.scss */
+.new-project-btn:hover {
+  background-color: #000;
+}
+
+/* Login form styles */
+/* line 106, app/assets/stylesheets/style.scss */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* line 110, app/assets/stylesheets/style.scss */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* line 118, app/assets/stylesheets/style.scss */
+.form-control:focus {
+  border-color: #333;
+}
+
+/* line 122, app/assets/stylesheets/style.scss */
+.btn {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* line 133, app/assets/stylesheets/style.scss */
+.btn:hover {
+  background-color: #000;
+}
+
+/* line 137, app/assets/stylesheets/style.scss */
+.alert.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* line 146, app/assets/stylesheets/style.scss */
+.alert.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+/* line 156, app/assets/stylesheets/style.scss */
+.comment-item {
+  margin-bottom: 20px;
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* line 164, app/assets/stylesheets/style.scss */
+.comment-user {
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+/* line 169, app/assets/stylesheets/style.scss */
+.comment-content {
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+/* line 174, app/assets/stylesheets/style.scss */
+.comment-date {
+  font-size: 0.8em;
+  color: #888;
+}
