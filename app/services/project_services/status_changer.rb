@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProjectServices
   class StatusChanger
     include Callable
@@ -23,7 +25,7 @@ module ProjectServices
     end
 
     def create_status_change_record(from_status, to_status)
-      project.status_changes.create(from_status: from_status, to_status: to_status, user: user)
+      project.status_changes.create(from_status:, to_status:, user:)
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authorize
 
@@ -5,11 +7,10 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     if @comment.save
       flash[:notice] = 'Comment was successfully created.'
-      redirect_to project_path(@comment.project_id)
     else
       flash[:error] = @comment.errors.full_messages.join(', ')
-      redirect_to project_path(@comment.project_id)
     end
+    redirect_to project_path(@comment.project_id)
   end
 
   private

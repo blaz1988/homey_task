@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe StatusChangesQuery, type: :query do
   let(:project) { FactoryBot.create(:project) }
   let(:other_project) { FactoryBot.create(:project) }
-  let(:status_change1) { FactoryBot.create(:status_change, project: project, created_at: 1.day.ago) }
-  let(:status_change2) { FactoryBot.create(:status_change, project: project, created_at: 2.days.ago) }
+  let(:status_change1) { FactoryBot.create(:status_change, project:, created_at: 1.day.ago) }
+  let(:status_change2) { FactoryBot.create(:status_change, project:, created_at: 2.days.ago) }
   let(:status_change3) { FactoryBot.create(:status_change, project: other_project) }
 
   describe '#by_project' do

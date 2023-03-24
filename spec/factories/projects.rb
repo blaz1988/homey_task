@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :project do
     name { Faker::Company.name }
@@ -6,7 +8,7 @@ FactoryBot.define do
 
     trait :with_comments do
       after(:create) do |project|
-        create_list(:comment, 3, project: project)
+        create_list(:comment, 3, project:)
       end
     end
   end

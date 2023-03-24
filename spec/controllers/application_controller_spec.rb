@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApplicationController, type: :controller do
@@ -35,7 +37,7 @@ RSpec.describe ApplicationController, type: :controller do
       end
     end
   end
-  
+
   describe '#authorize' do
     context 'when the user is logged in' do
       before do

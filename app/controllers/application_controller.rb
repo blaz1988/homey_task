@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
@@ -15,7 +17,6 @@ class ApplicationController < ActionController::Base
 
   def log_out
     session.delete(:user_id)
-    current_user = nil
   end
 
   def authorize

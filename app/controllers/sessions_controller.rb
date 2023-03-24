@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     authenticator = SessionAuthenticator.new(params[:session][:email], params[:session][:password])

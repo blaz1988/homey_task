@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SessionAuthenticator, type: :service do
@@ -8,7 +10,7 @@ RSpec.describe SessionAuthenticator, type: :service do
 
     context 'when user exists' do
       before do
-        FactoryBot.create(:user, email: email, password: 'password', password_confirmation: 'password')
+        FactoryBot.create(:user, email:, password: 'password', password_confirmation: 'password')
       end
 
       context 'with valid password' do

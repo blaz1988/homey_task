@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsQuery
   attr_reader :relation
 
@@ -6,7 +8,7 @@ class CommentsQuery
   end
 
   def by_project(project)
-    self.class.new(relation.where(project: project))
+    self.class.new(relation.where(project:))
   end
 
   def newest_first
