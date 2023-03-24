@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StatusChangesQuery
   attr_reader :relation
 
@@ -6,7 +8,7 @@ class StatusChangesQuery
   end
 
   def by_project(project)
-    self.class.new(relation.where(project: project))
+    self.class.new(relation.where(project:))
   end
 
   def oldest_first

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
@@ -7,8 +9,8 @@ RSpec.describe ProjectsController, type: :controller do
 
     describe 'GET #show' do
       let(:project) { FactoryBot.create(:project) }
-      let(:comment1) { FactoryBot.create(:comment, project: project) }
-      let(:comment2) { FactoryBot.create(:comment, project: project) }
+      let(:comment1) { FactoryBot.create(:comment, project:) }
+      let(:comment2) { FactoryBot.create(:comment, project:) }
 
       it 'assigns the requested project to @project' do
         get :show, params: { id: project.id }
@@ -27,7 +29,6 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     describe 'GET #index' do
-
       it 'renders the index template' do
         get :index
         expect(response).to render_template(:index)
@@ -36,7 +37,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     describe 'GET #new' do
       it 'assigns a new project to @project' do
-        get :new 
+        get :new
         expect(assigns(:project)).to be_a_new(Project)
       end
 
@@ -51,9 +52,9 @@ RSpec.describe ProjectsController, type: :controller do
         let(:valid_attributes) { FactoryBot.attributes_for(:project) }
 
         it 'creates a new project' do
-          expect {
+          expect do
             post :create, params: { project: valid_attributes }
-          }.to change(Project, :count).by(1)
+          end.to change(Project, :count).by(1)
         end
 
         it 'redirects to the new project' do
@@ -66,9 +67,9 @@ RSpec.describe ProjectsController, type: :controller do
         let(:invalid_attributes) { FactoryBot.attributes_for(:project, name: nil) }
 
         it 'does not save the new project' do
-          expect {
+          expect do
             post :create, params: { project: invalid_attributes }
-          }.not_to change(Project, :count)
+          end.not_to change(Project, :count)
         end
 
         it 're-renders the new template' do
@@ -80,7 +81,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     describe 'PATCH #update' do
       let(:project) { FactoryBot.create(:project, status: Project::STATUSES.first) }
-      
+
       context 'with valid attributes' do
         it 'updates the project status' do
           patch :update, params: { id: project.id, project: { status: Project::STATUSES.last } }
@@ -93,7 +94,7 @@ RSpec.describe ProjectsController, type: :controller do
           expect(response).to redirect_to(project_path(project))
         end
       end
-      
+
       context 'with invalid attributes' do
         it 'does not update the project' do
           patch :update, params: { id: project.id, project: { status: nil } }
@@ -112,8 +113,8 @@ RSpec.describe ProjectsController, type: :controller do
   context 'when user is not logged in' do
     before { session[:user_id] = nil }
 
-    it "redirects to the login page" do
-      get :new 
+    it 'redirects to the login page' do
+      get :new
       expect(response).to redirect_to(login_path)
     end
   end

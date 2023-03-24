@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionAuthenticator
   attr_reader :error, :email, :password
 
@@ -12,11 +14,10 @@ class SessionAuthenticator
 
   def authenticate
     if user
-      if user.authenticate(password)
-        return true
-      else
-        @error = 'Invalid password'
-      end
+      return true if user.authenticate(password)
+
+      @error = 'Invalid password'
+
     else
       @error = 'User does not exist'
     end
