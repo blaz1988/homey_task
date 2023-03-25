@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
 
-  resources :projects do
+  resources :projects, except: :destroy do
     resources :comments
   end
 

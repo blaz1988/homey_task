@@ -18,9 +18,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    if @project.save
+    @project = ProjectServices::CreateProject.call(project_params, current_user)
+    if @project.persisted?
       redirect_to @project
     else
       render 'new'
@@ -32,11 +31,6 @@ class ProjectsController < ApplicationController
     ProjectServices::StatusChanger.call(@project, project_params[:status], current_user)
     flash[:notice] = 'Status was successfully changed.'
     redirect_to @project
-  end
-
-  def destroy
-    @project.destroy
-    redirect_to projects_path
   end
 
   private

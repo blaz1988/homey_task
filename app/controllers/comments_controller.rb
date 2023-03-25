@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
   before_action :authorize
 
   def create
-    @comment = current_user.comments.build(comment_params)
-    if @comment.save
+    @comment = CommentServices::CreateComment.call(comment_params, current_user)
+    if @comment.persisted?
       flash[:notice] = 'Comment was successfully created.'
     else
       flash[:error] = @comment.errors.full_messages.join(', ')
