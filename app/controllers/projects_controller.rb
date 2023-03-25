@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
     ProjectServices::StatusChanger.call(@project, project_params[:status], current_user)
     flash[:notice] = 'Status was successfully changed.'
     redirect_to @project
